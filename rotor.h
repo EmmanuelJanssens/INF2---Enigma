@@ -2,19 +2,21 @@
 #define ROTOR_H
 #include <string>
 #include <vector>
+#include "EnigmaData.h"
 
 using namespace std;
 
-enum class ID_RT {I, II, III, IV, V};
-// RT for Rotor
+
 
 class Rotor{
 public:
     
 private:
     string rotorWiring;
-    ID_RT id ;
-    
+    ID_RT id;
+    char notch;
+    int startOffSet;
+    int currentPos;
 };
 
 #endif /* ROTOR_H */
