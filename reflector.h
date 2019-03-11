@@ -4,18 +4,21 @@
 #include <vector>
 #include "EnigmaData.h"
 
-using namespace std;
 
 
 
 class Reflector{
 public:
     
-private:
-    string reflectorWiring;
-    ID_RF id;
-    
+    Reflector();
 
+    char getChar( char c);
+private:
+    std::string reflectorWiring;
+    ID_RF id;
+
+
+    
 };
 
 #endif /* REFLECTOR_H */

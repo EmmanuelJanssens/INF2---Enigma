@@ -3,19 +3,28 @@
 #include <string>
 #include <vector>
 #include "EnigmaData.h"
-
+#include "utility.h"
 using namespace std;
 
 
 
-class Rotor{
+class Rotor
+{
 public:
-    
+     Rotor();
+
+    Rotor( ID_RT id,char currentPosition, char notch);
+
+    void rotate();
+    std::string getWiring();
+    char getChar(char c);
+    bool isAtNotch() const;
+
 private:
     string rotorWiring;
     ID_RT id;
     char notch;
-    int startOffSet;
+    int startPos;
     int currentPos;
 };
 
