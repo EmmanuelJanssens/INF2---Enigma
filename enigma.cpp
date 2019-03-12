@@ -30,7 +30,7 @@ void Enigma::setReflector( const Reflector& reflector )
 void Enigma::decode(const string& str)
 {
     string result = "";
-    for(int i = 0; i < str.length(); i++)
+    for(size_t i = 0; i < str.length(); i++)
     {
          update();
         {

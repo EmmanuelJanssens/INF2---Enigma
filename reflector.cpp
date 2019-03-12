@@ -15,14 +15,14 @@ id(id)
     (string&)reflectorWiring = EnigmaData::ReflectorWirings[(unsigned)id];
 }
 
-Reflector Reflector::operator=(const Reflector&ref)
+void Reflector::operator=(const Reflector&ref)
 {
     (ID_RF&)this->id = ref.id;
     (string&)this->reflectorWiring = ref.reflectorWiring;
 }
 void Reflector::debug()
 {
-    cout<<"reflector   : "<<EnigmaData::ReflectorIDtext[(unsigned)id]<<endl; 
+    cout<<"reflector   : "<<EnigmaData::ReflectorIDtext[(unsigned)id]<<endl;
     cout<<"wiring      : "<<EnigmaData::ReflectorWirings[(unsigned)id]<<endl;
 
 }

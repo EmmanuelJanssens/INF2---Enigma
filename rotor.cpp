@@ -27,7 +27,7 @@ Rotor::Rotor(ID_RT id, char startOffset, char notch)
 
 void Rotor::debug()
 {
-    cout<<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)id)<<endl; 
+    cout<<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)id)<<endl;
     cout<<"entry      : "<<EnigmaData::entry<<endl;
     cout<<"def wiring : "<<EnigmaData::RotorWirings.at((unsigned)id)<<endl;
     cout<<"position   : "<<EnigmaData::entry.at(((this->startPos+currentPos)%26))<<endl;
