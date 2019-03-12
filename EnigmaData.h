@@ -6,16 +6,18 @@
 #include <vector>
 
 
-enum class ID_RT {I, II, III, IV, V};
+enum class ID_RT {I = 0, II, III, IV, V};
 // RT for Rotor
 
-enum class ID_RF{UKW_A, UKW_B, UKW_C};
+enum class ID_RF{UKW_A = 0, UKW_B, UKW_C};
 // RF for Reflector
 
 
 class EnigmaData
 {
     public:
+
+    static std::string entry;
     static std::vector<std::string> RotorWirings ;
     static std::vector<std::string> RotorIDtext ;
 

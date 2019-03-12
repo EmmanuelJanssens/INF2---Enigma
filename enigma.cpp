@@ -32,34 +32,42 @@ void Enigma::decode(const string& str)
     string result = "";
     for(int i = 0; i < str.length(); i++)
     {
-        right.rotate();
+         update();
         {
-            result += 
-            right.getChar( 
-                    middle.getChar(
-                        left.getChar(
-                            reflector.getChar(
-                                left.getChar(
-                                    middle.getChar(
-                                        right.getChar(
-                                            str[i]
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-            );
+            char r = right.getChar(str[i], false);
+            char m = middle.getChar(r,false);
+            char l = left.getChar(m,false);
+            char reflected = reflector.getChar(l);
+            l = left.getChar(reflected, true);
+            m = middle.getChar(l,true);
+            r = right.getChar(m,true);
+
+            //char forth = left.getChar( middle.getChar( right.getChar( str[i],false),false),false);
+            //char back = right.getChar( middle.getChar( left.getChar( relfected,true),true),true);
+            result += r;
+
         }
-        update();
     }
+
+    cout<<result<<endl;
 }
 
 
 void Enigma::update()
 {
+
+    right.rotate();
+
     if(right.isAtNotch())
+    {
         middle.rotate();
-    if(middle.isAtNotch())
-        left.rotate();
+            if(middle.isAtNotch())
+            {
+                left.rotate();
+            }
+    }
+
+
+
+
 }

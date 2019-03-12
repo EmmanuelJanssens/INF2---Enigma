@@ -5,22 +5,34 @@
 #include "rotor.h"
 #include "EnigmaData.h"
 #include "utility.h"
+
 using namespace std;
 
- std::vector<std::string> EnigmaData::RotorWirings = {"EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "ESOVPZJAYQUIRHXLNFTGKDCMWB", "VZBRGITYUPSDNHLXAWMJQOFECK"};
- std::vector<std::string> EnigmaData::RotorIDtext = {"I", "II", "III", "IV", "V"};
+string EnigmaData::entry = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+std::vector<std::string> EnigmaData::RotorWirings = {"EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "ESOVPZJAYQUIRHXLNFTGKDCMWB", "VZBRGITYUPSDNHLXAWMJQOFECK"};
 
- std::vector<std::string> EnigmaData::ReflectorWirings = {"EJMZALYXVBWFCRQUONTSPIKHGD", "YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"};
- std::vector<std::string> EnigmaData::ReflectorIDtext = {"UKW_A", "UKW_B", "UKW_C"};
+std::vector<std::string> EnigmaData::RotorIDtext = {"I", "II", "III", "IV", "V"};
 
-bool EnigmaData::isDebug = true;
+std::vector<std::string> EnigmaData::ReflectorWirings = {"EJMZALYXVBWFCRQUONTSPIKHGD", "YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"};
+std::vector<std::string> EnigmaData::ReflectorIDtext = {"UKW_A", "UKW_B", "UKW_C"};
+
+bool EnigmaData::isDebug = false;
 
 int main() {
 
+  Enigma  enigma   (Rotor(ID_RT::II,'C','F'),
+                    Rotor(ID_RT::IV,'K','K'),
+                    Rotor(ID_RT::I,'M','R'),
+                    Reflector(ID_RF::UKW_B));
 
-  Rotor rotor(ID_RT::I,'A','M');
+  enigma.decode("MDXMDAORNSLZBJTCDSABGHLVWA");
+  //enigma.decode("B");
 
-  for(int i = 0; i < 4; i++)
+  /*Rotor  rotor(ID_RT::I,'C','F');
+
+  for(int i = 0; i < 27; i++)
+  {
     rotor.rotate();
+  }*/
   return 0;
 }

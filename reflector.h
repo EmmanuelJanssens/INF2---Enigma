@@ -7,6 +7,7 @@
 class Reflector{
 public:
 
+<<<<<<< HEAD
     Reflector();
 
     char getChar(char c) const;
@@ -15,6 +16,19 @@ public:
 private:
     std::string reflectorWiring;
     ID_RF id;
+=======
+    Reflector();    
+    Reflector(ID_RF id);
+
+    char getChar( char c);
+
+    void debug();
+
+    Reflector operator=(const Reflector&ref);
+private:
+    const std::string reflectorWiring;
+    const ID_RF id;
+>>>>>>> 4f5480008562ed01a84b33825bddfd4ab66362f4
 };
 
 #endif /* REFLECTOR_H */

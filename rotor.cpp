@@ -1,4 +1,5 @@
 #include "rotor.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -11,54 +12,75 @@ Rotor::Rotor(ID_RT id, char startOffset, char notch)
 {
     this->id = id;
     this->notch = notch;
-
     this->startPos = (startOffset - ASCII_OFFSET);
-
     this->currentPos = 0;
+    this->rotorWiring =  EnigmaData::RotorWirings[(unsigned)id];
 
-    this->rotorWiring = "";
-    for(int i = this->startPos ; i < 26 ; i++)
+    std::rotate(rotorWiring.begin(),rotorWiring.begin()+this->startPos,rotorWiring.end());
+
+    if(EnigmaData::isDebug)
     {
-        rotorWiring += EnigmaData::RotorWirings[(unsigned)id][i];
+        debug();
+        cout<<endl;
     }
-    for(int i = 0; i < this->startPos; i++)
-    {
-        rotorWiring += EnigmaData::RotorWirings[(unsigned)id][i];
-   
-    }
-    cout<<EnigmaData::RotorWirings[(unsigned)id]<<endl;
-    cout<<rotorWiring<<endl;
 }
 
-char Rotor::getChar(char c)
+void Rotor::debug()
 {
+    cout<<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)id)<<endl; 
+    cout<<"entry      : "<<EnigmaData::entry<<endl;
+    cout<<"def wiring : "<<EnigmaData::RotorWirings.at((unsigned)id)<<endl;
+    cout<<"position   : "<<EnigmaData::entry.at(((this->startPos+currentPos)%26))<<endl;
+    cout<<"pos wiring : "<<this->rotorWiring<<endl;
+    cout<<"notch      : "<<this->notch<<endl;
 
 }
 
-string Rotor::getWiring()
+char Rotor::getChar(char c,bool reverse)
 {
 
+    if(reverse)
+    {
+        int pos = rotorWiring.find(c);
+        if(EnigmaData::isDebug)
+        {
+            cout<<endl;
+            debug();
+            cout<<"result    : "<<c<<"=>"<<EnigmaData::entry.at(pos)<<endl<<endl;
+        }
+        return EnigmaData::entry.at(pos);
+    }
+    else
+    {
+        int pos = EnigmaData::entry.find(c);
+        if(EnigmaData::isDebug)
+        {
+            cout<<endl;
+            debug();
+            cout<<"result    : "<<rotorWiring.at(pos)<<"<="<<c<<endl<<endl;
+        }
+
+        return rotorWiring.at(pos);
+    }
 }
 
 void Rotor::rotate()
 {
-    cout<<rotorWiring[currentPos]<<" "<<rotorWiring<<endl;
 
-    if(rotorWiring[currentPos] == notch )
-    {
-        currentPos = startPos;
-        cout<<"At notch"<<endl;
-    }
-
-    char last = rotorWiring.at(25);
-
-    rotorWiring.insert(rotorWiring.begin(),last);
-    rotorWiring.resize(26);
+    std::rotate(rotorWiring.begin(),rotorWiring.begin()+1,rotorWiring.end());
 
     currentPos++;
+    if(currentPos > 26)
+        currentPos = 0;
+
 }
 
-bool Rotor::isAtNotch() const
+bool Rotor::isAtNotch()
 {
+    if(EnigmaData::entry.at(((this->startPos+currentPos)%26)) == notch +1  )
+    {
 
+        return true;
+    }
+    return false;
 }
