@@ -10,7 +10,7 @@
 
 class Enigma{
 public:
-    
+
     Enigma(Rotor Left,Rotor Middle, Rotor Right, Reflector reflector);
 
     void decode(const std::string& str);
@@ -30,7 +30,7 @@ private:
     Rotor middle;
     Rotor left;
     Reflector reflector;
-    
+
 };
 
 #endif /* ENIGMA_H */

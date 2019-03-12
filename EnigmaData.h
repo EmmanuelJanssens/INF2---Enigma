@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#define ASCII_OFFSET 65
 
 enum class ID_RT {I = 0, II, III, IV, V};
 // RT for Rotor

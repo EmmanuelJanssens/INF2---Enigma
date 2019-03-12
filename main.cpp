@@ -4,7 +4,7 @@
 #include "reflector.h"
 #include "rotor.h"
 #include "EnigmaData.h"
-#include "utility.h"
+// #include "utility.h"
 
 using namespace std;
 
