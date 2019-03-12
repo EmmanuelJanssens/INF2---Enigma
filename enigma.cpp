@@ -67,7 +67,4 @@ void Enigma::update()
             }
     }
 
-
-
-
 }
