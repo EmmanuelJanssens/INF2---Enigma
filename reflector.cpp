@@ -25,22 +25,11 @@ void Reflector::debug()
     cout<<"reflector   : "<<EnigmaData::ReflectorIDtext[(unsigned)id]<<endl; 
     cout<<"wiring      : "<<EnigmaData::ReflectorWirings[(unsigned)id]<<endl;
 
-<<<<<<< HEAD
-char Reflector::getChar(char c) const
-=======
 }
 char Reflector::getChar(char c)
->>>>>>> 4f5480008562ed01a84b33825bddfd4ab66362f4
 {
     int pos = reflectorWiring.find(c);
 
-<<<<<<< HEAD
-}
-
-string Reflector::getRfWiring() const {
-  return reflectorWiring;
-}
-=======
     if(EnigmaData::isDebug)
     {
         debug();
@@ -48,4 +37,3 @@ string Reflector::getRfWiring() const {
     }
     return EnigmaData::entry[pos];
 }
->>>>>>> 4f5480008562ed01a84b33825bddfd4ab66362f4
