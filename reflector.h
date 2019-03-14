@@ -19,7 +19,7 @@ Compilateur : MinGW-g++ 6.3.0
 #include <string>
 #include <vector>
 #include "EnigmaData.h"
-
+using namespace std;
 class Reflector{
 public:
     //constructeurs
@@ -40,8 +40,9 @@ public:
      * [permet d'affecter des valeurs aux constantes]
      */
     void operator=(const Reflector&ref);
+    friend ostream& operator<<(ostream& lhs, const Reflector& rhs);
 private:
-    const std::string reflectorWiring;
+    const string reflectorWiring;
     const ID_RF id;
 };
 

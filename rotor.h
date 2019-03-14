@@ -20,7 +20,6 @@ Compilateur : MinGW-g++ 6.3.0
 #include <vector>
 #include "EnigmaData.h"
 
-using namespace std;
 
 
 
@@ -35,29 +34,13 @@ public:
      * [rotate fait tourner le rotorWiring de droite à gauche et incrémente la position actuelle du rotor]
      */
     void rotate();
-
-    /**
-     * [getWiring description]
-     */
-    // std::string getWiring();
-
-    /**
-     * [getChar convertit un caractère entré en son caractère correspondant]
-     * @param  reverse [permet de savoir si on part du reflecteur ou si on en sort]
-     */
-    char getChar(char c,bool reverse);
-
-    /**
-     * [wasAtNotch indique qu'on a passé le notch]
-     */
-    bool wasAtNotch();
-
-    /**
-     * [debug description]
-     */
-    void debug();
+    std::string getWiring();
+    char convertChar(char c,bool reverse) const;
+    bool isAtNotch();
+    void debug() const;
+    friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
 private:
-    string rotorWiring;
+    std::string rotorWiring;
     ID_RT id;
     char notch;
     int startPos;

@@ -52,3 +52,12 @@ char Reflector::getChar(char c)
     }
     return EnigmaData::entry.at(pos);
 }
+ostream& operator<<(ostream& lhs, const Reflector& rhs)
+{
+    lhs <<"reflector   : "<<EnigmaData::ReflectorIDtext.at((unsigned)rhs.id)<<endl
+        <<"wiring      : "<<EnigmaData::ReflectorWirings.at((unsigned)rhs.id)<<endl;
+
+    return lhs;
+    
+}
+
