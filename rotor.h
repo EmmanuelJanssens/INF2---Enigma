@@ -34,15 +34,26 @@ public:
      * [rotate fait tourner le rotorWiring de droite à gauche et incrémente la position actuelle du rotor]
      */
     void rotate();
+
     /**
      * [convertChar description]
      * @param  reverse [description]
      */
     char convertChar(char c,bool reverse) const;
+
+    /**
+     * [wasAtNotch permet d'indiquer qu'on a passer le notch du rotor et qu'il faudra donc le rotate]
+     */
     bool wasAtNotch();
-    void debug() const;
+
+    /**
+     * surcharge de l'opérateur de flux
+     */
     friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
-    
+
+    /**
+     * surcharge de l'opérateur =
+     */
     void operator=(const Rotor&rotor);
 private:
     std::string rotorWiring;
