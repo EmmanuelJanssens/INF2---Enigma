@@ -17,10 +17,10 @@ public:
 
     void rotate();
     std::string getWiring();
-    char getChar(char c,bool reverse);
+    char convertChar(char c,bool reverse) const;
     bool isAtNotch();
 
-    void debug();
+    void debug() const;
 private:
     string rotorWiring;
     ID_RT id;

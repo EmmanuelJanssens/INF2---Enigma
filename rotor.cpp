@@ -24,7 +24,7 @@ Rotor::Rotor(ID_RT id, char startOffset, char notch)
     }
 }
 
-void Rotor::debug()
+void Rotor::debug() const
 {
     cout<<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)id)<<endl;
     cout<<"entry      : "<<EnigmaData::entry<<endl;
@@ -35,34 +35,40 @@ void Rotor::debug()
 
 }
 
-char Rotor::getChar(char c,bool reverse)
+char Rotor::convertChar(char c,bool reverse) const
 {
-
+    long pos = 0;
+    string result = "result    : ";
+    char creturn;
     if(reverse)
     {
-        long pos = rotorWiring.find(c);
+        pos = rotorWiring.find(c);
         if(EnigmaData::isDebug)
         {
             cout<<endl;
             debug();
-            cout<<"result    : "<<c<<"=>"<<EnigmaData::entry.at(pos)<<endl<<endl;
+            result += c;
+            result += "=>" ;
+            result += EnigmaData::entry.at(pos);
         }
-        return EnigmaData::entry.at(pos);
+        creturn = EnigmaData::entry.at(pos);
     }
     else
     {
-        long pos = EnigmaData::entry.find(c);
-        if(EnigmaData::isDebug)
-        {
-            cout<<endl;
-            debug();
-            cout<<"result    : "<<rotorWiring.at(pos)<<"<="<<c<<endl<<endl;
-        }
-
-        return rotorWiring.at(pos);
+        pos = EnigmaData::entry.find(c);
+        creturn = rotorWiring.at(pos);
+        result += rotorWiring.at(pos);
+        result += "<=";
+        result += c;
     }
+    if(EnigmaData::isDebug)
+    {
+        cout<<endl;
+        debug();
+        cout << result ;
+    }
+    return creturn;
 }
-
 void Rotor::rotate()
 {
 

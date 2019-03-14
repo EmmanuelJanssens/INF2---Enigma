@@ -34,13 +34,13 @@ void Enigma::decode(const string& str)
     {
          update();
         {
-            char r = right.getChar(str.at(i), false);
-            char m = middle.getChar(r,false);
-            char l = left.getChar(m,false);
+            char r = right.convertChar(str.at(i), false);
+            char m = middle.convertChar(r,false);
+            char l = left.convertChar(m,false);
             char reflected = reflector.getChar(l);
-            l = left.getChar(reflected, true);
-            m = middle.getChar(l,true);
-            r = right.getChar(m,true);
+            l = left.convertChar(reflected, true);
+            m = middle.convertChar(l,true);
+            r = right.convertChar(m,true);
 
             //char forth = left.getChar( middle.getChar( right.getChar( str[i],false),false),false);
             //char back = right.getChar( middle.getChar( left.getChar( relfected,true),true),true);
