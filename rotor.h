@@ -4,7 +4,6 @@
 #include <vector>
 #include "EnigmaData.h"
 
-using namespace std;
 
 
 
@@ -19,10 +18,10 @@ public:
     std::string getWiring();
     char convertChar(char c,bool reverse) const;
     bool isAtNotch();
-
     void debug() const;
+    friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
 private:
-    string rotorWiring;
+    std::string rotorWiring;
     ID_RT id;
     char notch;
     int startPos;

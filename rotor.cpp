@@ -89,3 +89,15 @@ bool Rotor::isAtNotch()
     }
     return false;
 }
+
+ostream& operator<<(ostream& lhs, const Rotor& rhs)
+{
+    lhs <<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)rhs.id)<<endl
+        <<"entry      : "<<EnigmaData::entry<<endl
+        <<"def wiring : "<<EnigmaData::RotorWirings.at((unsigned)rhs.id)<<endl
+        <<"position   : "<<EnigmaData::entry.at(((rhs.startPos+rhs.currentPos)%26))<<endl
+        <<"pos wiring : "<<rhs.rotorWiring<<endl
+        <<"notch      : "<<rhs.notch<<endl;
+    return lhs;
+    
+}

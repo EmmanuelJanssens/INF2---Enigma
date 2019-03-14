@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "EnigmaData.h"
-
+using namespace std;
 class Reflector{
 public:
 
@@ -15,8 +15,9 @@ public:
     void debug();
 
     void operator=(const Reflector&ref);
+    friend ostream& operator<<(ostream& lhs, const Reflector& rhs);
 private:
-    const std::string reflectorWiring;
+    const string reflectorWiring;
     const ID_RF id;
 };
 

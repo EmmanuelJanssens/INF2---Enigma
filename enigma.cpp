@@ -1,7 +1,6 @@
 #include "enigma.h"
 
 
-
 Enigma::Enigma(Rotor left, Rotor middle, Rotor right, Reflector reflector)
 {
     this->left = left;
