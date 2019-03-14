@@ -55,8 +55,7 @@ char Rotor::convertChar(char c,bool reverse) const
         pos = rotorWiring.find(c);
         if(EnigmaData::isDebug)
         {
-            cout << endl;
-            cout << *this;
+            
             result += c;
             result += "=>" ;
             result += EnigmaData::entry.at(pos);
@@ -74,14 +73,13 @@ char Rotor::convertChar(char c,bool reverse) const
     }
     if(EnigmaData::isDebug)
     {
-        cout<<*this<<endl;
-        cout << result ;
+        cout<<*this;
+        cout << result << endl<< endl ;
     }
     return creturn;
 }
 void Rotor::rotate()
 {
-
     std::rotate(rotorWiring.begin(),rotorWiring.begin()+1,rotorWiring.end());
 
     currentPos++;
@@ -89,7 +87,6 @@ void Rotor::rotate()
         //Si on fait un tour complet avec le rotor, on recommence au début
         // de la chaîne de caractère
         currentPos = 0;
-
 }
 
 bool Rotor::wasAtNotch()

@@ -39,8 +39,7 @@ public:
      * @param  reverse [description]
      */
     char convertChar(char c,bool reverse) const;
-    bool wasAtNotch();
-    void debug() const;
+    bool wasAtNotch();;
     friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
     
     void operator=(const Rotor&rotor);
