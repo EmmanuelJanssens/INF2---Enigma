@@ -18,12 +18,14 @@ Compilateur : MinGW-g++ 6.3.0
 #include "reflector.h"
 
 using namespace std;
-
+// constructeur par défaut
 Reflector::Reflector():
 id(ID_RF::UKW_A)
 {
 
 }
+
+// constructeur standard
 Reflector::Reflector(const ID_RF& id):
 id(id)
 {
@@ -38,8 +40,9 @@ void Reflector::operator=(const Reflector&ref)
 
 char Reflector::getChar(char c)
 {
+    //On récupère le caractère correspondant dans la chaîne de caractère spécifique
+    // au reflector
     long pos = reflectorWiring.find(c);
-
     if(EnigmaData::isDebug)
     {
         cout<<*this;
@@ -49,6 +52,7 @@ char Reflector::getChar(char c)
 }
 ostream& operator<<(ostream& lhs, const Reflector& rhs)
 {
+        // pour pouvoir afficher un réflector en cout
     lhs <<"reflector   : "<<EnigmaData::ReflectorIDtext.at((unsigned)rhs.id)<<endl
         <<"wiring      : "<<EnigmaData::ReflectorWirings.at((unsigned)rhs.id)<<endl;
 
