@@ -23,13 +23,13 @@ Compilateur : MinGW-g++ 6.3.0
 
 using namespace std;
 
-string EnigmaData::entry = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-std::vector<std::string> EnigmaData::RotorWirings = {"EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "ESOVPZJAYQUIRHXLNFTGKDCMWB", "VZBRGITYUPSDNHLXAWMJQOFECK"};
+const string EnigmaData::entry = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::vector<std::string> EnigmaData::RotorWirings = {"EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "ESOVPZJAYQUIRHXLNFTGKDCMWB", "VZBRGITYUPSDNHLXAWMJQOFECK"};
 
-std::vector<std::string> EnigmaData::RotorIDtext = {"I", "II", "III", "IV", "V"};
+const std::vector<std::string> EnigmaData::RotorIDtext = {"I", "II", "III", "IV", "V"};
 
-std::vector<std::string> EnigmaData::ReflectorWirings = {"EJMZALYXVBWFCRQUONTSPIKHGD", "YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"};
-std::vector<std::string> EnigmaData::ReflectorIDtext = {"UKW_A", "UKW_B", "UKW_C"};
+const std::vector<std::string> EnigmaData::ReflectorWirings = {"EJMZALYXVBWFCRQUONTSPIKHGD", "YRUHQSLDPXNGOKMIEBFZCWVJAT", "FVPJIAOYEDRZXWGCTKUQSBNMHL"};
+const std::vector<std::string> EnigmaData::ReflectorIDtext = {"UKW_A", "UKW_B", "UKW_C"};
 
 bool EnigmaData::isDebug = true;
 

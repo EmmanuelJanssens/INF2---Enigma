@@ -39,11 +39,13 @@ public:
     bool wasAtNotch();
     void debug() const;
     friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
+    
+    void operator=(const Rotor&rotor);
 private:
     std::string rotorWiring;
-    ID_RT id;
-    char notch;
-    int startPos;
+    const ID_RT id;
+    const char notch;
+    const int startPos;
     int currentPos;
 };
 
