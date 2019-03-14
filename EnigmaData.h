@@ -1,3 +1,19 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : enigmaData.h
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Voir le main.cpp
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #ifndef ENIGMADATA_H
 #define ENIGMADATA_H
 
@@ -18,13 +34,19 @@ class EnigmaData
 {
     public:
 
+    //alphabet par défaut
     static std::string entry;
+    //chaines de caractère propres au rotor
     static std::vector<std::string> RotorWirings ;
+    //correspondance entre les id et les strings
     static std::vector<std::string> RotorIDtext ;
 
+    //chaines de caractère propres au reflecteur
     static std::vector<std::string> ReflectorWirings;
+    //correspondance entre les id et les strings
     static std::vector<std::string> ReflectorIDtext ;
 
+    //permet d'afficher le mode debuggage ou pas
     static bool isDebug ;
 
 };

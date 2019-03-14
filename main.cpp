@@ -1,4 +1,20 @@
-//test 123
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : main.cpp
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Dans ce laboratoire, nous avons comme but de répliquer une machine Enigma.
+              Nous devons être capable d'encoder et de décoder des messages cryptés.
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #include <iostream>
 #include "enigma.h"
 #include "reflector.h"

@@ -1,3 +1,19 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : reflector.cpp
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Voir le main.cpp
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #include <algorithm>
 #include "reflector.h"
 
@@ -8,7 +24,7 @@ id(ID_RF::UKW_A)
 {
 
 }
-Reflector::Reflector(ID_RF id):
+Reflector::Reflector(const ID_RF& id):
 id(id)
 {
     (string&)reflectorWiring = EnigmaData::ReflectorWirings.at(toupper((unsigned)id));

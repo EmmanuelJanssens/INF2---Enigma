@@ -1,3 +1,19 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : rotor.cpp
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Voir le main.cpp
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #include "rotor.h"
 #include <algorithm>
 using namespace std;
@@ -7,7 +23,7 @@ Rotor::Rotor()
 
 }
 
-Rotor::Rotor(ID_RT id, char startOffset, char notch)
+Rotor::Rotor(const ID_RT& id, char startOffset, char notch)
 {
     this->id = id;
     this->notch = toupper(notch);
@@ -74,7 +90,7 @@ void Rotor::rotate()
 
 }
 
-bool Rotor::isAtNotch()
+bool Rotor::wasAtNotch()
 {
     if(EnigmaData::entry.at(((this->startPos+currentPos)%26)) == notch +1  )
     {

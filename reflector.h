@@ -1,3 +1,19 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : reflector.h
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Voir le main.cpp
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #ifndef REFLECTOR_H
 #define REFLECTOR_H
 #include <string>
@@ -6,14 +22,23 @@
 
 class Reflector{
 public:
-
+    //constructeurs
     Reflector();
-    Reflector(ID_RF id);
+    Reflector(const ID_RF& id);
 
+    /**
+     * [getChar couvertit le char correspondant du reflecteur]
+     */
     char getChar( char c);
 
+    /**
+     * [debug description]
+     */
     void debug();
 
+    /**
+     * [permet d'affecter des valeurs aux constantes]
+     */
     void operator=(const Reflector&ref);
 private:
     const std::string reflectorWiring;
@@ -21,21 +46,3 @@ private:
 };
 
 #endif /* REFLECTOR_H */
-
-/**
-
- public:
-   Reflector(const ID_RF& id,const std::string& reflectorWiring);
-
-   std::string getRfWiring() const;
-   char getChar(char) const;
-
- private:
-     const ID_RF id;
-     const std::string reflectorWiring;
- };
-
-
- Reflector::Reflector(const ID_RF& id,const string& reflectorWiring)
- :id(id), reflectorWiring(reflectorWiring) { }
- */

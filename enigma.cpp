@@ -1,3 +1,19 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratoire : 02
+Fichier     : enigma.cpp
+Groupe      : Labo_02_H
+Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
+Date        : 14.03.2019
+
+But         : Voir le main.cpp
+
+Remarque(s) : -
+
+Compilateur : MinGW-g++ 6.3.0
+-----------------------------------------------------------------------------------
+*/
+
 #include "enigma.h"
 
 
@@ -58,10 +74,10 @@ void Enigma::update()
 
     right.rotate();
 
-    if(right.isAtNotch())
+    if(right.wasAtNotch())
     {
         middle.rotate();
-            if(middle.isAtNotch())
+            if(middle.wasAtNotch())
             {
                 left.rotate();
             }
