@@ -1,6 +1,5 @@
 #include "rotor.h"
 #include <algorithm>
-
 using namespace std;
 
 Rotor::Rotor()
@@ -11,10 +10,10 @@ Rotor::Rotor()
 Rotor::Rotor(ID_RT id, char startOffset, char notch)
 {
     this->id = id;
-    this->notch = notch;
-    this->startPos = (startOffset - ASCII_OFFSET);
+    this->notch = toupper(notch);
+    this->startPos = toupper(startOffset - ASCII_OFFSET);
     this->currentPos = 0;
-    this->rotorWiring =  EnigmaData::RotorWirings[(unsigned)id];
+    this->rotorWiring = EnigmaData::RotorWirings.at(toupper((unsigned)id));
 
     std::rotate(rotorWiring.begin(),rotorWiring.begin()+this->startPos,rotorWiring.end());
 

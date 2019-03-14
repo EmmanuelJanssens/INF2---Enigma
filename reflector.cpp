@@ -11,7 +11,7 @@ id(ID_RF::UKW_A)
 Reflector::Reflector(ID_RF id):
 id(id)
 {
-    (string&)reflectorWiring = EnigmaData::ReflectorWirings.at((unsigned)id);
+    (string&)reflectorWiring = EnigmaData::ReflectorWirings.at(toupper((unsigned)id));
 }
 
 void Reflector::operator=(const Reflector&ref)
@@ -34,5 +34,5 @@ char Reflector::getChar(char c)
         debug();
         cout<<"result    : "<<c<<"=>"<<EnigmaData::entry.at(pos)<<endl<<endl;
     }
-    return EnigmaData::entry[pos];
+    return EnigmaData::entry.at(pos);
 }
