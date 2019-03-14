@@ -34,7 +34,7 @@ void Enigma::decode(const string& str)
     {
          update();
         {
-            char r = right.getChar(str[i], false);
+            char r = right.getChar(str.at(i), false);
             char m = middle.getChar(r,false);
             char l = left.getChar(m,false);
             char reflected = reflector.getChar(l);

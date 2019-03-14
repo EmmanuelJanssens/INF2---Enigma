@@ -41,7 +41,7 @@ char Rotor::getChar(char c,bool reverse)
 
     if(reverse)
     {
-        int pos = rotorWiring.find(c);
+        long pos = rotorWiring.find(c);
         if(EnigmaData::isDebug)
         {
             cout<<endl;
@@ -52,7 +52,7 @@ char Rotor::getChar(char c,bool reverse)
     }
     else
     {
-        int pos = EnigmaData::entry.find(c);
+        long pos = EnigmaData::entry.find(c);
         if(EnigmaData::isDebug)
         {
             cout<<endl;

@@ -11,7 +11,7 @@ id(ID_RF::UKW_A)
 Reflector::Reflector(ID_RF id):
 id(id)
 {
-    (string&)reflectorWiring = EnigmaData::ReflectorWirings[(unsigned)id];
+    (string&)reflectorWiring = EnigmaData::ReflectorWirings.at((unsigned)id);
 }
 
 void Reflector::operator=(const Reflector&ref)
@@ -21,18 +21,18 @@ void Reflector::operator=(const Reflector&ref)
 }
 void Reflector::debug()
 {
-    cout<<"reflector   : "<<EnigmaData::ReflectorIDtext[(unsigned)id]<<endl;
-    cout<<"wiring      : "<<EnigmaData::ReflectorWirings[(unsigned)id]<<endl;
+    cout<<"reflector   : "<<EnigmaData::ReflectorIDtext.at((unsigned)id)<<endl;
+    cout<<"wiring      : "<<EnigmaData::ReflectorWirings.at((unsigned)id)<<endl;
 
 }
 char Reflector::getChar(char c)
 {
-    int pos = reflectorWiring.find(c);
+    long pos = reflectorWiring.find(c);
 
     if(EnigmaData::isDebug)
     {
         debug();
-        cout<<"result    : "<<c<<"=>"<<EnigmaData::entry[pos]<<endl<<endl;
+        cout<<"result    : "<<c<<"=>"<<EnigmaData::entry.at(pos)<<endl<<endl;
     }
     return EnigmaData::entry[pos];
 }
