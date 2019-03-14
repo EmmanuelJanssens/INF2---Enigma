@@ -6,7 +6,8 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : contient la classe Enigma qui permet d'obtenir une machine Enigma
+              formée de ses composants (3 rotors et un reflector)
 
 Remarque(s) : -
 

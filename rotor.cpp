@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : Voir le fichier rotor.h
 
 Remarque(s) : -
 
@@ -123,5 +123,5 @@ ostream& operator<<(ostream& lhs, const Rotor& rhs)
         <<"pos wiring : "<<rhs.rotorWiring<<endl
         <<"notch      : "<<rhs.notch<<endl;
     return lhs;
-    
+
 }

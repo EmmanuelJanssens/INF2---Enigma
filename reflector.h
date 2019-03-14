@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : contient la classe reflector qui correspond au réflecteur de la machine Enigma
 
 Remarque(s) : -
 
@@ -31,11 +31,23 @@ public:
      */
     char getChar( char c);
 
+<<<<<<< HEAD
+    /**
+     * [debug ]
+     */
+    void debug();
+
+=======
  
+>>>>>>> 215fd028b5369af9ce52ccd989734be7c6eed51c
     /**
      * [permet d'affecter des valeurs aux constantes]
      */
     void operator=(const Reflector&ref);
+
+    /**
+     * surcharge de l'opérateur de flux
+     */
     friend ostream& operator<<(ostream& lhs, const Reflector& rhs);
 private:
     const string reflectorWiring;
