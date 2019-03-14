@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : contient les données propres nécessaire à la machine Enigma
 
 Remarque(s) : -
 

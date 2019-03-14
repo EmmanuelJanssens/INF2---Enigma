@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : Voir le fichier reflector.h
 
 Remarque(s) : -
 
@@ -58,6 +58,5 @@ ostream& operator<<(ostream& lhs, const Reflector& rhs)
         <<"wiring      : "<<EnigmaData::ReflectorWirings.at((unsigned)rhs.id)<<endl;
 
     return lhs;
-    
-}
 
+}

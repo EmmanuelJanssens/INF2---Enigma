@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : Voir le fichier rotor.h
 
 Remarque(s) : -
 
@@ -35,7 +35,7 @@ Rotor::Rotor(const ID_RT& id, char startOffset, char notch)
 
     if(EnigmaData::isDebug)
     {
-        debug();
+        cout << *this;
         cout<<endl;
     }
 }
@@ -62,7 +62,6 @@ char Rotor::convertChar(char c,bool reverse) const
         if(EnigmaData::isDebug)
         {
             cout<<endl;
-            debug();
             result += c;
             result += "=>" ;
             result += EnigmaData::entry.at(pos);
@@ -79,8 +78,8 @@ char Rotor::convertChar(char c,bool reverse) const
     }
     if(EnigmaData::isDebug)
     {
-        cout<<endl;
-        debug();
+        cout << endl;
+        cout << *this;
         cout << result ;
     }
     return creturn;
@@ -115,5 +114,5 @@ ostream& operator<<(ostream& lhs, const Rotor& rhs)
         <<"pos wiring : "<<rhs.rotorWiring<<endl
         <<"notch      : "<<rhs.notch<<endl;
     return lhs;
-    
+
 }

@@ -6,7 +6,7 @@ Groupe      : Labo_02_H
 Auteur(s)   : Emmanuel Janssens, Johann Werkle, Gabrielle Thurnherr
 Date        : 14.03.2019
 
-But         : Voir le main.cpp
+But         : contient la classe Rotor qui permet d'obtenir les rotors de la machine Enigma
 
 Remarque(s) : -
 
@@ -34,9 +34,12 @@ public:
      * [rotate fait tourner le rotorWiring de droite à gauche et incrémente la position actuelle du rotor]
      */
     void rotate();
-    std::string getWiring();
+    /**
+     * [convertChar description]
+     * @param  reverse [description]
+     */
     char convertChar(char c,bool reverse) const;
-    bool isAtNotch();
+    bool wasAtNotch();
     void debug() const;
     friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
 private:
