@@ -35,19 +35,14 @@ void Reflector::operator=(const Reflector&ref)
     (ID_RF&)this->id = ref.id;
     (string&)this->reflectorWiring = ref.reflectorWiring;
 }
-void Reflector::debug()
-{
-    cout<<"reflector   : "<<EnigmaData::ReflectorIDtext.at((unsigned)id)<<endl;
-    cout<<"wiring      : "<<EnigmaData::ReflectorWirings.at((unsigned)id)<<endl;
 
-}
 char Reflector::getChar(char c)
 {
     long pos = reflectorWiring.find(c);
 
     if(EnigmaData::isDebug)
     {
-        debug();
+        cout<<*this;
         cout<<"result    : "<<c<<"=>"<<EnigmaData::entry.at(pos)<<endl<<endl;
     }
     return EnigmaData::entry.at(pos);
