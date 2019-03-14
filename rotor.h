@@ -36,7 +36,7 @@ public:
     void rotate();
     std::string getWiring();
     char convertChar(char c,bool reverse) const;
-    bool isAtNotch();
+    bool wasAtNotch();
     void debug() const;
     friend std::ostream& operator<<(std::ostream& lhs, const Rotor& rhs);
 private:

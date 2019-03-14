@@ -17,12 +17,13 @@ Compilateur : MinGW-g++ 6.3.0
 #include "rotor.h"
 #include <algorithm>
 using namespace std;
-
+// constructeur par défaut
 Rotor::Rotor()
 {
 
 }
 
+// constructeur standard
 Rotor::Rotor(const ID_RT& id, char startOffset, char notch)
 {
     this->id = id;
@@ -53,16 +54,19 @@ void Rotor::debug() const
 
 char Rotor::convertChar(char c,bool reverse) const
 {
+    //On récupère le caractère correspondant dans la chaîne de caractère spécifique
+    // au rotor et affichage éventuel des données
     long pos = 0;
     string result = "result    : ";
     char creturn;
     if(reverse)
+        //Pour quand on revient du réflecteur
     {
         pos = rotorWiring.find(c);
         if(EnigmaData::isDebug)
         {
-            cout<<endl;
-            debug();
+            cout << endl;
+            cout << *this;
             result += c;
             result += "=>" ;
             result += EnigmaData::entry.at(pos);
@@ -70,6 +74,7 @@ char Rotor::convertChar(char c,bool reverse) const
         creturn = EnigmaData::entry.at(pos);
     }
     else
+        //Pour quand on va jusqu'au réflecteur
     {
         pos = EnigmaData::entry.find(c);
         creturn = rotorWiring.at(pos);
@@ -79,8 +84,8 @@ char Rotor::convertChar(char c,bool reverse) const
     }
     if(EnigmaData::isDebug)
     {
-        cout<<endl;
-        debug();
+        cout << endl;
+        cout << *this;
         cout << result ;
     }
     return creturn;
@@ -92,22 +97,26 @@ void Rotor::rotate()
 
     currentPos++;
     if(currentPos > 26)
+        //Si on fait un tour complet avec le rotor, on recommence au début
+        // de la chaîne de caractère
         currentPos = 0;
 
 }
 
 bool Rotor::wasAtNotch()
 {
-    if(EnigmaData::entry.at(((this->startPos+currentPos)%26)) == notch +1  )
+    if(EnigmaData::entry.at(((this->startPos+currentPos)%26)) == notch +1)
+        // On vérifie si on a atteint le notch fixé à la création de l'objet
     {
-
         return true;
+        // Le rotor suivant devra faire une rotation
     }
     return false;
 }
 
 ostream& operator<<(ostream& lhs, const Rotor& rhs)
 {
+    // pour pouvoir afficher un rotor en cout
     lhs <<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)rhs.id)<<endl
         <<"entry      : "<<EnigmaData::entry<<endl
         <<"def wiring : "<<EnigmaData::RotorWirings.at((unsigned)rhs.id)<<endl
