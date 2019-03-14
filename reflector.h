@@ -31,15 +31,7 @@ public:
      */
     char getChar( char c);
 
-<<<<<<< HEAD
-    /**
-     * [debug ]
-     */
-    void debug();
 
-=======
- 
->>>>>>> 215fd028b5369af9ce52ccd989734be7c6eed51c
     /**
      * [permet d'affecter des valeurs aux constantes]
      */
