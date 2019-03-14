@@ -35,16 +35,16 @@ class EnigmaData
     public:
 
     //alphabet par défaut
-    static std::string entry;
+    static const std::string entry;
     //chaines de caractère propres au rotor
-    static std::vector<std::string> RotorWirings ;
+    static const std::vector<std::string> RotorWirings ;
     //correspondance entre les id et les strings
-    static std::vector<std::string> RotorIDtext ;
+    static const std::vector<std::string> RotorIDtext ;
 
     //chaines de caractère propres au reflecteur
-    static std::vector<std::string> ReflectorWirings;
+    static const std::vector<std::string> ReflectorWirings;
     //correspondance entre les id et les strings
-    static std::vector<std::string> ReflectorIDtext ;
+    static const std::vector<std::string> ReflectorIDtext ;
 
     //permet d'afficher le mode debuggage ou pas
     static bool isDebug ;

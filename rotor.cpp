@@ -19,15 +19,16 @@ Compilateur : MinGW-g++ 6.3.0
 using namespace std;
 
 Rotor::Rotor()
+:id(ID_RT::I),notch('A'),startPos('A')
 {
 
 }
 
 Rotor::Rotor(const ID_RT& id, char startOffset, char notch)
+:id(id),notch(notch),startPos(0)
 {
-    this->id = id;
-    this->notch = toupper(notch);
-    this->startPos = toupper(startOffset - ASCII_OFFSET);
+    (char&)this->notch = toupper(notch);
+    (int&)this->startPos = toupper(startOffset - ASCII_OFFSET);
     this->currentPos = 0;
     this->rotorWiring = EnigmaData::RotorWirings.at(toupper((unsigned)id));
 
@@ -35,20 +36,9 @@ Rotor::Rotor(const ID_RT& id, char startOffset, char notch)
 
     if(EnigmaData::isDebug)
     {
-        cout << *this;
+        cout<<*this<<endl;
         cout<<endl;
     }
-}
-
-void Rotor::debug() const
-{
-    cout<<"rotor id   : "<<EnigmaData::RotorIDtext.at((unsigned)id)<<endl;
-    cout<<"entry      : "<<EnigmaData::entry<<endl;
-    cout<<"def wiring : "<<EnigmaData::RotorWirings.at((unsigned)id)<<endl;
-    cout<<"position   : "<<EnigmaData::entry.at(((this->startPos+currentPos)%26))<<endl;
-    cout<<"pos wiring : "<<this->rotorWiring<<endl;
-    cout<<"notch      : "<<this->notch<<endl;
-
 }
 
 char Rotor::convertChar(char c,bool reverse) const
@@ -61,7 +51,6 @@ char Rotor::convertChar(char c,bool reverse) const
         pos = rotorWiring.find(c);
         if(EnigmaData::isDebug)
         {
-            cout<<endl;
             result += c;
             result += "=>" ;
             result += EnigmaData::entry.at(pos);
@@ -78,8 +67,7 @@ char Rotor::convertChar(char c,bool reverse) const
     }
     if(EnigmaData::isDebug)
     {
-        cout << endl;
-        cout << *this;
+        cout<<*this<<endl;
         cout << result ;
     }
     return creturn;
@@ -103,6 +91,16 @@ bool Rotor::wasAtNotch()
         return true;
     }
     return false;
+}
+
+void Rotor::operator=(const Rotor& rotor)
+{
+
+    rotorWiring = rotor.rotorWiring;
+    (ID_RT&)id = rotor.id;
+    (char&)notch = rotor.notch;
+    (int&)startPos = rotor.startPos;
+    currentPos = currentPos;
 }
 
 ostream& operator<<(ostream& lhs, const Rotor& rhs)
